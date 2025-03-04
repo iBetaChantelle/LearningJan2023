@@ -1,0 +1,43 @@
+using System;
+using System.Threading;
+
+class HappyBirthday
+{
+    // Define the frequency for each note
+    static readonly int C = 261;
+    static readonly int D = 294;
+    static readonly int E = 329;
+    static readonly int F = 349;
+    static readonly int G = 392;
+    static readonly int A = 440;
+    static readonly int B = 466;
+    static readonly int CHigh = 523;
+
+    static void Main()
+    {
+        // Happy Birthday melody
+        int[] melody = {
+            C, C, D, C, F, E,   // "Happy Birthday to you"
+            C, C, D, C, G, F,   // "Happy Birthday to you"
+            C, C, CHigh, A, F, E, D, // "Happy Birthday dear (name)"
+            CHigh, CHigh, A, F, G, F // "Happy Birthday to you"
+        };
+
+        // Define note durations (in milliseconds)
+        int[] durations = {
+            400, 400, 800, 400, 400, 800,    // "Happy Birthday to you"
+            400, 400, 800, 400, 400, 800,    // "Happy Birthday to you"
+            400, 400, 400, 400, 400, 400, 800, // "Happy Birthday dear (name)"
+            400, 400, 400, 400, 400, 800     // "Happy Birthday to you"
+        };
+
+        // Play the melody
+        for (int i = 0; i < melody.Length; i++)
+        {
+            Console.Beep(melody[i], durations[i]);
+            Thread.Sleep(50); // A small pause between notes
+        }
+
+        Console.WriteLine("\nHappy Birthday!");
+    }
+}
